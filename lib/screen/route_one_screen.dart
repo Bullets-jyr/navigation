@@ -15,6 +15,20 @@ class RouteOneScreen extends StatelessWidget {
     return MainLayout(
       title: 'Route One',
       children: [
+        ElevatedButton(
+          onPressed: () {
+            print(Navigator.of(context).canPop());
+          },
+          child: Text('Can Pop'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // 뒤로 갈 수 있는 route가 없을 경우, 뒤로 가기를 할 수 없습니다.
+            // Navigator.of(context).canPop()의 반환값이 true일 경우 Pop이 가능합니다.
+            Navigator.of(context).maybePop();
+          },
+          child: Text('Maybe Pop'),
+        ),
         Text(
           'arguments : ${number.toString()}',
           textAlign: TextAlign.center,
